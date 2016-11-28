@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/home_bt_parent">
+
+            <Button
+                android:id="@+id/homefg_bt_enjoy"
+                style="@style/home_bt_style"
+                android:background="@color/Cyan"
+                android:text="关注关注娱乐圈"
+                />
+
+            <Button
+                android:id="@+id/homefg_bt_dream"
+                style="@style/home_bt_style"
+                android:background="@color/Yellow"
+                android:text="夜个做梦了"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/home_bt_parent">
+
+            <Button
+                android:id="@+id/homefg_bt_boring"
+                style="@style/home_bt_style"
+                android:background="@color/Teal"
+                android:text="好无聊..."
+                />
+
+            <Button
+                android:id="@+id/homefg_bt_study"
+                style="@style/home_bt_style"
+                android:background="@color/Amber"
+                android:text="我要学习"
+                />
+        </LinearLayout>
+
+        <LinearLayout style="@style/home_bt_parent">
+
+            <Button
+                android:id="@+id/homefg_bt_cooking"
+                style="@style/home_bt_style"
+                android:background="@color/Green"
+                android:text="晚上吃点啥呢"
+                />
+
+            <Button
+                android:id="@+id/homefg_bt_weichat"
+                style="@style/home_bt_style"
+                android:background="@color/Orange"
+                android:text="微信精选文章"
+                />
+        </LinearLayout>
+
+        <LinearLayout style="@style/home_bt_parent">
+
+            <Button
+                android:id="@+id/homefg_bt_travel"
+                style="@style/home_bt_style"
+                android:background="@color/Light_Green"
+                android:text="该去旅游了吧"
+                />
+
+            <Button
+                android:id="@+id/homefg_bt_countrynews"
+                style="@style/home_bt_style"
+                android:background="@color/Deep_Orange"
+                android:text="看看国家大事"
+                />
+        </LinearLayout>
+
+        <LinearLayout style="@style/home_bt_parent">
+
+            <Button
+                android:id="@+id/homefg_bt_healthy"
+                style="@style/home_bt_style"
+                android:background="@color/Lime"
+                android:text="健康很重要"
+                />
+
+            <Button
+                android:id="@+id/homefg_bt_today"
+                style="@style/home_bt_style"
+                android:background="@color/Brown"
+                android:text="历史上的今天发生了啥"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

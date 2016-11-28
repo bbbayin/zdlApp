@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="48dp"
+             android:background="#ddd">
+
+    <!--tab bar-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/include_bottombar_rg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/include_bottombar_rb_mainpage"
+                style="@style/bottom_bar_radiobutton_style"
+                android:text="首页"/>
+
+            <RadioButton
+                android:id="@+id/include_bottombar_rb_friend"
+                style="@style/bottom_bar_radiobutton_style"
+                android:text="圈子"/>
+
+            <RadioButton
+                android:id="@+id/include_bottombar_rb_me"
+                style="@style/bottom_bar_radiobutton_style"
+                android:text="我的"/>
+        </RadioGroup>
+    </FrameLayout>
+
+
+    <!--分割线-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray"/>
+</FrameLayout>

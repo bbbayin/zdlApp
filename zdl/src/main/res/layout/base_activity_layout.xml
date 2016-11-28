@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+
+    <!-- content -->
+    <FrameLayout
+        android:id="@+id/base_fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/base_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <!-- loading... -->
+        <ProgressBar
+            android:id="@+id/base_progressbar"
+            style="@android:style/Widget.ProgressBar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <!--error page-->
+    <FrameLayout
+        android:id="@+id/base_fl_errorpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/base_bt_reload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:text="网络不给力╮(╯▽╰)╭\n点击重新加载"
+            android:textColor="#888"/>
+    </FrameLayout>
+
+    <!-- 导航栏-->
+    <include
+        layout="@layout/include_bottom_bar_layout"/>
+
+</LinearLayout>
