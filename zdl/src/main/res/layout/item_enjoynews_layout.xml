@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="140px"
+                                     android:background="@color/white"
+                                     android:gravity="center_vertical"
+                                     android:orientation="horizontal">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="90px"
+        android:layout_margin="25px"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/item_enjoy_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题"
+            android:textColor="@color/text_normal"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/item_enjoy_tv_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="腾讯新闻"
+            android:textColor="@color/text_light"
+            android:textSize="9dp"/>
+
+        <TextView
+            android:id="@+id/item_enjoy_tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30px"
+            android:textColor="@color/text_light"
+            android:text="2016-9-12"
+            android:textSize="9dp"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <ImageView
+        android:id="@+id/item_enjoy_iv_pic"
+        android:layout_width="120px"
+        android:layout_height="78px"
+        android:layout_marginRight="25px"
+        android:scaleType="centerCrop"
+        android:src="@drawable/small_pic"/>
+</com.zhy.autolayout.AutoLinearLayout>

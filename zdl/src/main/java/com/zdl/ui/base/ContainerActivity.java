@@ -1,7 +1,7 @@
 package com.zdl.ui.base;
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -70,7 +70,7 @@ public class ContainerActivity extends MVPBaseActivity<ContainerInterface, Conta
                     }
 
                     //add fragment
-                    getFragmentManager().beginTransaction().add(R.id.fragment_container, mFragment, className)
+                    getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, mFragment, className)
                             .addToBackStack(className)
                             .commitAllowingStateLoss();
                 } catch (Exception e) {
@@ -80,10 +80,16 @@ public class ContainerActivity extends MVPBaseActivity<ContainerInterface, Conta
         }
     }
 
+    public Toolbar getToolbar(){
+        return mToolbar;
+    }
+
     public static void launch(Activity from, Class<? extends Fragment> claz, Bundle args) {
         Intent intent = new Intent();
         initLunchMode(intent, args);
         intent.setClass(from, ContainerActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (args != null) {
             intent.putExtra(Constants.FRAGMENT_CLASSNAME, claz.getName());
             intent.putExtra(Constants.FRAGMENT_ARGSKEY, args);
@@ -97,6 +103,13 @@ public class ContainerActivity extends MVPBaseActivity<ContainerInterface, Conta
         if (anInt != -3) {
             intent.addFlags(anInt);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount()>1) getSupportFragmentManager().popBackStack();
+        else finish();
+        super.onBackPressed();
     }
 
     @Override

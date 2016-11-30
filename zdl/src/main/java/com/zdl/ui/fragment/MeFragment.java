@@ -1,5 +1,8 @@
 package com.zdl.ui.fragment;
 
+import android.os.Bundle;
+import android.view.View;
+
 import com.zdl.R;
 import com.zdl.iview.MeInterface;
 import com.zdl.presenter.MePresenter;
@@ -19,5 +22,10 @@ public class MeFragment extends MvpBaseFragment<MeInterface,MePresenter> {
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_me;
+    }
+
+    @Override
+    protected void initView(View inflate, Bundle savedInstanceState) {
+
     }
 }

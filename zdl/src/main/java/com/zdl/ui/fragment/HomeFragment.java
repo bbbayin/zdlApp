@@ -1,6 +1,7 @@
 package com.zdl.ui.fragment;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.zdl.R;
 import com.zdl.iview.HomeInterface;
@@ -16,6 +17,7 @@ import butterknife.OnClick;
 public class HomeFragment extends MvpBaseFragment<HomeInterface,HomeFgPresenter> {
     @OnClick(R.id.homefg_bt_enjoy)
     void seeEnjoy(){
+        FunFragment.launch(getActivity(),new Bundle());
     }
     @OnClick(R.id.homefg_bt_boring)
     void boring(){
@@ -62,5 +64,10 @@ public class HomeFragment extends MvpBaseFragment<HomeInterface,HomeFgPresenter>
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_home;
+    }
+
+    @Override
+    protected void initView(View inflate, Bundle savedInstanceState) {
+
     }
 }
