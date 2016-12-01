@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">ZDL</string>
     <string name="action_settings">Settings</string>
+    <string-array name="lable_titles">
+        <item>关注娱乐圈</item>
+        <item>夜里做梦了</item>
+        <item>好无聊...</item>
+        <item>我要学习</item>
+        <item>晚上吃点啥呢</item>
+        <item>微信精选文章</item>
+        <item>该去旅游了</item>
+        <item>看看国家大事儿</item>
+        <item>锻炼锻炼身体</item>
+        <item>历史上的今天</item>
+    </string-array>
 </resources>

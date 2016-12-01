@@ -9,8 +9,9 @@
         android:layout_height="match_parent"/>
     <ProgressBar
         android:id="@+id/webview_progress"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
+        style="@style/ProgressBar_Mini"
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:layout_gravity="top"
         />
 </FrameLayout>

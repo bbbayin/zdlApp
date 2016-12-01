@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#F44336</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#3C3F41</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="theme_background">#eeeff1</color>
     <color name="blue_bottombar">#006CEF</color>
     <color name="text_normal">#333</color>
     <color name="text_light">#555</color>
@@ -36,4 +37,6 @@
     <color name="Blue_grey">#569ce3</color>
     <color name="Green_light">#00D8CC</color>
     <color name="Green_bright">#91d110</color>
+
+    <color name="transparent">#00ffffff</color>
 </resources>

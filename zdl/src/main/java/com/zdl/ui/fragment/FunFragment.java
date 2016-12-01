@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -33,6 +34,8 @@ public class FunFragment extends MvpBaseFragment<FunIterface, FunPresenter> impl
     ImageView mTopImage;
     @BindView(R.id.collapsing)
     CollapsingToolbarLayout mCollapsingToolbarLayout;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     private int pageNo = 1;
     private int limitPage = 10;
@@ -57,6 +60,8 @@ public class FunFragment extends MvpBaseFragment<FunIterface, FunPresenter> impl
     protected void initView(View inflate, Bundle savedInstanceState) {
         getContainerActivity().getToolbar().setVisibility(View.GONE);
         mCollapsingToolbarLayout.setTitle("娱乐新闻");
+        getContainerActivity().setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.mipmap.back);
     }
 
     @Override

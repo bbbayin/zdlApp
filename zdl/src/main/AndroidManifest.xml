@@ -16,7 +16,8 @@
         <!--启动页面-->
         <activity
             android:name=".ui.EnterActivity"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.AppCompat.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

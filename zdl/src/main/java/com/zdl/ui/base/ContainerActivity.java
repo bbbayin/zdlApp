@@ -1,13 +1,13 @@
 package com.zdl.ui.base;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.zdl.R;
 import com.zdl.constant.Constants;
@@ -27,8 +27,8 @@ import static android.R.attr.fragment;
 public class ContainerActivity extends MVPBaseActivity<ContainerInterface, ContainerPresenter> implements ContainerInterface {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.toolbar_title)
-    TextView mTitle;
+//    @BindView(R.id.toolbar_title)
+//    TextView mTitle;
     @BindView(R.id.fragment_container)
     FrameLayout mContainer;
 
@@ -63,12 +63,9 @@ public class ContainerActivity extends MVPBaseActivity<ContainerInterface, Conta
                             method.invoke(fragment, mArgs);
                         } catch (Exception e) {
                         }
-                        //title
-                        String title = mArgs.getString(Constants.FRAGMENT_TITLE);
-                        if (!TextUtils.isEmpty(title)) mTitle.setText(title);
-                        else mTitle.setText("MyAPP Title");
                     }
-
+                    //title
+                    initToolbar();
                     //add fragment
                     getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, mFragment, className)
                             .addToBackStack(className)
@@ -78,6 +75,19 @@ public class ContainerActivity extends MVPBaseActivity<ContainerInterface, Conta
                 }
             } else return;
         }
+    }
+
+    private void initToolbar() {
+        setSupportActionBar(mToolbar);
+
+        //返回键
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        mToolbar.setNavigationIcon(R.mipmap.back);
+//        //title
+        String title = mArgs.getString(Constants.FRAGMENT_TITLE);
+        if (!TextUtils.isEmpty(title)) getSupportActionBar().setTitle(title);
+        else getSupportActionBar().setTitle("MyAPP Title");
     }
 
     public Toolbar getToolbar(){
@@ -115,5 +125,15 @@ public class ContainerActivity extends MVPBaseActivity<ContainerInterface, Conta
     @Override
     public void initTitleBar() {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

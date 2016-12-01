@@ -9,12 +9,12 @@ import com.zdl.iview.BrowserInterface;
 public class BrowserPresenter extends BasePresenter<BrowserInterface> {
     private BrowserInterface mIview;
     public BrowserPresenter() {
-        super();
-        mIview = getView();
+
     }
 
     public void loadData(){
         if (isAttached()){
+            mIview = getView();
             mIview.loadHtml();
         }
     }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -58,6 +59,16 @@ public class BrowserFragment extends MvpBaseFragment<BrowserInterface, BrowserPr
                 Log.d("xx", "shouldOverrideUrlLoading：" + url);
                 mWebView.loadUrl(url);
                 return true;
+            }
+
+        });
+        mWebView.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                if (newProgress == 100) mProgressBar.setVisibility(View.GONE);
+                else mProgressBar.setVisibility(View.VISIBLE);
+                mProgressBar.setProgress(newProgress);
             }
         });
         //initdata
