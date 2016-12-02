@@ -12,8 +12,11 @@
         <!--android:numColumns="2"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"/>-->
-    <android.support.v7.widget.RecyclerView
+    <com.zdl.custormview.GridRecyclerView
         android:id="@+id/home_recyclerview"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layoutAnimation="@anim/griditem_anim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </FrameLayout>

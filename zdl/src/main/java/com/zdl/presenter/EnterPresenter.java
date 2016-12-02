@@ -23,7 +23,7 @@ public class EnterPresenter extends BasePresenter<EnterInterface> {
         if (isAttached()){
             mView = getView();
             mView.startAnimation();
-            mHandler.sendEmptyMessageDelayed(1,5000);
+            mHandler.sendEmptyMessageDelayed(1,4000);
         }
     }
 }

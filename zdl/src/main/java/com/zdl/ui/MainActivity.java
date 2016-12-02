@@ -39,12 +39,18 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Snackbar.make(view, "这个按钮没啥用..", Snackbar.LENGTH_LONG)
+                        .setAction("真的吗", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                            }
+                        }).show();
             }
         });
 
         setViewPager();
+        mRadioGroup.check(R.id.radio_home);
         mRadioGroup.setOnCheckedChangeListener(this);
     }
 

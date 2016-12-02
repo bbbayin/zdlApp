@@ -54,24 +54,8 @@ public class GridItemDivide extends RecyclerView.ItemDecoration {
             final int left = child.getLeft() - params.leftMargin;
             final int right = child.getRight() + params.rightMargin
                     + mDivider.getIntrinsicWidth();
-//            final int top = child.getBottom() + params.bottomMargin;
-//            final int bottom = top + mDivider.getIntrinsicHeight();
-            int top = 0;
-            int bottom = 0;
-            if (i / getSpanCount(parent) == 0) {
-                top = 0;
-                bottom = top + mDivider.getIntrinsicHeight();
-                mDivider.setBounds(left, top, right, bottom);
-                mDivider.draw(c);
-                //画item下面的分割线
-                top = child.getBottom() + params.bottomMargin;
-                bottom = top + mDivider.getIntrinsicHeight();
-                mDivider.setBounds(left, top, right, bottom);
-                mDivider.draw(c);
-            } else {
-                top = child.getBottom() + params.bottomMargin;
-                bottom = top + mDivider.getIntrinsicHeight();
-            }
+            final int top = child.getBottom() + params.bottomMargin;
+            final int bottom = top + mDivider.getIntrinsicHeight();
             mDivider.setBounds(left, top, right, bottom);
             mDivider.draw(c);
         }
@@ -86,23 +70,8 @@ public class GridItemDivide extends RecyclerView.ItemDecoration {
                     .getLayoutParams();
             final int top = child.getTop() - params.topMargin;
             final int bottom = child.getBottom() + params.bottomMargin;
-//            int left = child.getRight() + params.rightMargin;
-//            int right = left + mDivider.getIntrinsicWidth();
-            int left = 0;
-            int right = 0;
-            if (i % getSpanCount(parent) == 0) {
-                //item左边分割线
-                left = 0;
-                right = left + mDivider.getIntrinsicWidth();
-                mDivider.setBounds(left, top, right, bottom);
-                mDivider.draw(c);
-                //item右边分割线
-                left = child.getRight() + params.rightMargin;
-                right = left + mDivider.getIntrinsicWidth();
-            } else {
-                left = child.getRight() + params.rightMargin;
-                right = left + mDivider.getIntrinsicWidth();
-            }
+            int left = child.getRight() + params.rightMargin;
+            int right = left + mDivider.getIntrinsicWidth();
             mDivider.setBounds(left, top, right, bottom);
             mDivider.draw(c);
         }
@@ -110,13 +79,13 @@ public class GridItemDivide extends RecyclerView.ItemDecoration {
 
     private boolean isFirstRow(RecyclerView parent, int pos, int spanCount,
                                int childCount) {
-        if (pos+1 <= spanCount) return true;
+        if (pos + 1 <= spanCount) return true;
         return false;
     }
 
     private boolean isFirstColum(RecyclerView parent, int pos, int spanCount,
                                  int childCount) {
-        if (pos-1 % spanCount == 0) return true;
+        if (pos - 1 % spanCount == 0) return true;
         return false;
     }
 
@@ -124,10 +93,10 @@ public class GridItemDivide extends RecyclerView.ItemDecoration {
                                 int childCount) {
         LayoutManager layoutManager = parent.getLayoutManager();
         if (layoutManager instanceof GridLayoutManager) {
-//                if ((pos + 1) % spanCount == 0)// 如果是最后一列，则不需要绘制右边
-//                {
-//                    return true;
-//                }
+            if ((pos + 1) % spanCount == 0)// 如果是最后一列，则不需要绘制右边
+            {
+                return true;
+            }
         } else if (layoutManager instanceof StaggeredGridLayoutManager) {
             int orientation = ((StaggeredGridLayoutManager) layoutManager)
                     .getOrientation();
@@ -149,9 +118,9 @@ public class GridItemDivide extends RecyclerView.ItemDecoration {
                               int childCount) {
         LayoutManager layoutManager = parent.getLayoutManager();
         if (layoutManager instanceof GridLayoutManager) {
-//                childCount = childCount - childCount % spanCount;
-//                if (pos >= childCount)// 如果是最后一行，则不需要绘制底部
-//                    return true;
+            childCount = childCount - childCount % spanCount;
+            if (pos >= childCount)// 如果是最后一行，则不需要绘制底部
+                return true;
         } else if (layoutManager instanceof StaggeredGridLayoutManager) {
             int orientation = ((StaggeredGridLayoutManager) layoutManager)
                     .getOrientation();
@@ -185,13 +154,9 @@ public class GridItemDivide extends RecyclerView.ItemDecoration {
             outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
         } else if (isLastColum(parent, itemPosition, spanCount, childCount))// 如果是最后一列，则不需要绘制右边
         {
-            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
-        } else if (isFirstRow(parent, itemPosition, spanCount, childCount)) {
-            outRect.set(0, mDivider.getIntrinsicWidth(), 0, 0);
-        } else if (isFirstColum(parent, itemPosition, spanCount, childCount)) {
-            outRect.set(mDivider.getIntrinsicWidth(), 0, 0, 0);
+            outRect.set( mDivider.getIntrinsicWidth(), 0, mDivider.getIntrinsicWidth(), mDivider.getIntrinsicHeight());
         } else {
-            outRect.set(0, 0, mDivider.getIntrinsicWidth(), mDivider.getIntrinsicHeight());
+            outRect.set(mDivider.getIntrinsicWidth(), 0, mDivider.getIntrinsicWidth(), mDivider.getIntrinsicHeight());
         }
     }
 }

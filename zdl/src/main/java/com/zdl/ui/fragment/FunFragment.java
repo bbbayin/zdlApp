@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -13,6 +12,7 @@ import com.zdl.R;
 import com.zdl.adapter.FunAdapter;
 import com.zdl.bean.FunBean;
 import com.zdl.constant.Constants;
+import com.zdl.custormview.AutoToolbar;
 import com.zdl.iview.FunIterface;
 import com.zdl.presenter.FunPresenter;
 import com.zdl.ui.base.ContainerActivity;
@@ -35,7 +35,7 @@ public class FunFragment extends MvpBaseFragment<FunIterface, FunPresenter> impl
     @BindView(R.id.collapsing)
     CollapsingToolbarLayout mCollapsingToolbarLayout;
     @BindView(R.id.toolbar)
-    Toolbar mToolbar;
+    AutoToolbar mToolbar;
 
     private int pageNo = 1;
     private int limitPage = 10;

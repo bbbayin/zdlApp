@@ -29,8 +29,8 @@ public class EnterActivity extends MVPBaseActivity<EnterInterface,EnterPresenter
 
         xA.setDuration(3000);
         yA.setDuration(3000);
-        scaleX.setDuration(2000);
-        scaleY.setDuration(2000);
+        scaleX.setDuration(1000);
+        scaleY.setDuration(1000);
         AnimatorSet set = new AnimatorSet();
         set.play(scaleX).with(scaleY).before(xA).with(yA);
         set.start();

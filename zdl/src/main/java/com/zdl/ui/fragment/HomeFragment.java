@@ -3,15 +3,19 @@ package com.zdl.ui.fragment;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.zdl.R;
 import com.zdl.adapter.GridItemDivide;
 import com.zdl.adapter.HomeAdapter;
+import com.zdl.bean.HomeLableBean;
+import com.zdl.custormview.GridRecyclerView;
 import com.zdl.iview.HomeInterface;
 import com.zdl.presenter.HomeFgPresenter;
 import com.zdl.ui.base.MvpBaseFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -62,9 +66,15 @@ public class HomeFragment extends MvpBaseFragment<HomeInterface, HomeFgPresenter
 //        // TODO: 2016/11/28
 //    }
     @BindView(R.id.home_recyclerview)
-    RecyclerView mGridView;
+    GridRecyclerView mGridView;
     private String[] mLableString;
 
+    private int[] mArrImageSource = {R.drawable.lable_fun,R.drawable.lable_dream,
+    R.drawable.lable_boring,R.drawable.lable_study,R.drawable.lable_food,R.drawable.lable_jingxuan,
+    R.drawable.lable_travel,R.drawable.lable_country,R.drawable.lable_sport,R.drawable.lable_history};
+
+    private String[] fragmentName = {FunFragment.class.getSimpleName(),"","","","","","","","",""};
+    private List<HomeLableBean> mList;
     @Override
     protected HomeFgPresenter createPresenter() {
         return new HomeFgPresenter();
@@ -77,10 +87,19 @@ public class HomeFragment extends MvpBaseFragment<HomeInterface, HomeFgPresenter
 
     @Override
     protected void initData() {
+        HomeLableBean lableBena;
+        if (mList == null) mList = new ArrayList<>();
         mLableString = getActivity().getResources().getStringArray(R.array.lable_titles);
+        for (int i = 0; i < mLableString.length; i++) {
+            lableBena = new HomeLableBean();
+            lableBena.setLableTitle(mLableString[i]);
+            lableBena.setResId(mArrImageSource[i]);
+            lableBena.setFragmentName(fragmentName[i]);
+            mList.add(lableBena);
+        }
         //setadapter
 //        HomeGridAdapter adapter = new HomeGridAdapter(mLableString);
-        HomeAdapter homeAdapter = new HomeAdapter(mLableString);
+        HomeAdapter homeAdapter = new HomeAdapter(getActivity(),mList);
         mGridView.setLayoutManager(new GridLayoutManager(getActivity(),2, GridLayoutManager.VERTICAL,false));
         Drawable divide = getActivity().getResources().getDrawable(R.drawable.shape_divider_transparent);
         mGridView.addItemDecoration(new GridItemDivide(getActivity(),divide));
