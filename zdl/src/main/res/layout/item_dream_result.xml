@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_rect_trans_white_bg"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/item_dream_type_title"
+            style="@style/dream_item_text_title"
+            android:text="类型:"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/item_dream_tv_type"
+            style="@style/dream_item_text_content"
+            android:layout_marginLeft="4sp"
+            android:textSize="14sp"
+            android:text=""/>
+
+
+        <TextView
+            android:id="@+id/item_dream_things_title"
+            style="@style/dream_item_text_title"
+            android:layout_marginLeft="20dp"
+            android:text="梦见:"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/item_dream_tv_things"
+            style="@style/dream_item_text_content"
+            android:layout_marginLeft="4dp"
+            android:textSize="14sp"
+            android:text=""/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/text_hint"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/dream_item_text_title"
+            android:text="周公解梦:"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/item_dream_tv_result"
+            style="@style/dream_item_text_content"
+            android:layout_marginLeft="4dp"
+            android:textSize="14sp"
+            android:text=""/>
+    </LinearLayout>
+</LinearLayout>

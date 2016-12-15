@@ -11,4 +11,7 @@ public interface FunIterface {
     void disProgress();
     void netError();
     void updateUI(FunBean funBean);
+    void loadMore(FunBean funBean);
+    void loadMoreFinsh();
+    void noMoreLoading();
 }

@@ -10,6 +10,8 @@ import com.zdl.R;
 import com.zhy.autolayout.utils.AutoUtils;
 
 /**
+ * Gridview 适配器
+ *
  * Created by bayin on 2016/12/1.
  */
 

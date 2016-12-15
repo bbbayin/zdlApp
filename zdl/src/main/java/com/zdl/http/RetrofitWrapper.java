@@ -18,12 +18,13 @@ public class RetrofitWrapper {
     public static Retrofit getRetrofit(){
         if (retrofit == null){
             synchronized (RetrofitWrapper.class){
+                //创建OkHttpClient
                 OkHttpClient client = new OkHttpClient.Builder()
                         .addInterceptor(new CommonIntercepter())
                         .build();
                 retrofit = new Retrofit.Builder()
                         .baseUrl(Urls.baseUrl)
-                        .client(client)
+                        .client(client)//添加自定义OkHttpClient
                         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();

@@ -3,6 +3,7 @@ package com.zdl.adapter;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,7 +14,12 @@ import android.widget.Toast;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.zdl.R;
 import com.zdl.bean.HomeLableBean;
+import com.zdl.constant.Constants;
+import com.zdl.http.Urls;
 import com.zdl.ui.fragment.FunFragment;
+import com.zdl.ui.fragment.HealthFragment;
+import com.zdl.ui.fragment.ReadDreamFragment;
+import com.zdl.ui.fragment.StrangeFragment;
 import com.zdl.util.ImageUtil;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -24,7 +30,7 @@ import java.util.List;
  */
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> implements View.OnClickListener {
-//    private String[] mStr;
+    //    private String[] mStr;
 //    private int[] mImages;
     private Activity mContext;
     private List<HomeLableBean> mDataList;
@@ -44,7 +50,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> im
     public void onBindViewHolder(HomeHolder holder, int position) {
         HomeLableBean lableBean = mDataList.get(position);
         holder.lableText.setText(lableBean.getLableTitle());
-        Bitmap okBitmap = getBitmap(lableBean.getResId(),lableBean.getLableTitle());
+        Bitmap okBitmap = getBitmap(lableBean.getResId(), lableBean.getLableTitle());
         holder.mImageView.setImageBitmap(okBitmap);
 
         //click
@@ -58,7 +64,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> im
             BitmapFactory.Options opt = new BitmapFactory.Options();
             opt.inJustDecodeBounds = true;
             BitmapFactory.decodeResource(mContext.getResources(), image, opt);
-            opt.inSampleSize = calculateInSampleSize(opt, 200, 380);
+            opt.inSampleSize = calculateInSampleSize(opt, 100, 190);
             opt.inJustDecodeBounds = false;
             bitmap = BitmapFactory.decodeResource(mContext.getResources(), image, opt);
             ImageUtil.cacheImage(mContext, key, bitmap);
@@ -94,12 +100,24 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> im
     @Override
     public void onClick(View v) {
         HomeLableBean bena = (HomeLableBean) v.getTag();
-        if (bena!=null){
+        if (bena != null) {
             String fragmentName = bena.getFragmentName();
-            if (TextUtils.isEmpty(fragmentName)){
-                Toast.makeText(mContext,"/(ㄒoㄒ)/~~等等吧..",Toast.LENGTH_SHORT).show();
-            }else {
-                if (fragmentName.equals("FunFragment")) FunFragment.launch(mContext,null);
+            if (TextUtils.isEmpty(fragmentName)) {
+                Toast.makeText(mContext, "/(ㄒoㄒ)/~~等等吧..", Toast.LENGTH_SHORT).show();
+            } else {
+                if (fragmentName.equals("FunFragment")) {
+                    FunFragment.launch(mContext, null);
+                } else if (fragmentName.equals("ReadDreamFragment")) {
+                    ReadDreamFragment.launch(mContext);
+                } else if (fragmentName.equals("StrangeFragment")) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(Constants.FRAGMENT_URL, Urls.strange_url);
+                    StrangeFragment.launch(mContext, bundle);
+                }else if (fragmentName.equals("HealthFragment")) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(Constants.FRAGMENT_URL, Urls.heath_url);
+                    HealthFragment.launch(mContext, bundle);
+                }
             }
 
         }

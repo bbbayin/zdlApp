@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ZDL</string>
     <string name="action_settings">Settings</string>
+    <string name="sorry_to_search_nothing">Sorry to search nothing</string>
     <string-array name="lable_titles">
         <item>关注娱乐圈</item>
         <item>夜里做梦了</item>

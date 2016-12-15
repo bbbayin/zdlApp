@@ -72,6 +72,24 @@ public class FunAdapter extends RecyclerView.Adapter<FunAdapter.FunHolder> imple
         BrowserFragment.launch(mContext,bundle);
     }
 
+    public void refresh(FunBean bean){
+        if (bean!=null){
+            List<FunBean.NewslistBean> newslist = bean.getNewslist();
+            this.mNewsList = newslist;
+            notifyDataSetChanged();
+        }
+    }
+
+    public void add(FunBean bean){
+        if (bean!=null){
+            List<FunBean.NewslistBean> newslist = bean.getNewslist();
+            int startIndex = getItemCount();
+            int length = newslist != null ? newslist.size():0;
+            mNewsList.addAll(newslist);
+            notifyItemRangeInserted(startIndex,length);
+        }
+    }
+
     public class FunHolder extends RecyclerView.ViewHolder{
         private View rootView;
         private TextView tvTitle, tvSource, tvTime;

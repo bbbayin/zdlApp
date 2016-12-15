@@ -30,9 +30,15 @@ public abstract class MvpBaseFragment<V,T extends BasePresenter<V>> extends Frag
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preInit();
         mPresenter = createPresenter();
         mPresenter.attachView((V) this);
     }
+
+    /**
+     * 在oncreate()执行时调用
+     */
+    protected void preInit(){}
 
     protected abstract int getLayoutID();
 

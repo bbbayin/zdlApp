@@ -69,12 +69,26 @@ public class HomeFragment extends MvpBaseFragment<HomeInterface, HomeFgPresenter
     GridRecyclerView mGridView;
     private String[] mLableString;
 
-    private int[] mArrImageSource = {R.drawable.lable_fun,R.drawable.lable_dream,
-    R.drawable.lable_boring,R.drawable.lable_study,R.drawable.lable_food,R.drawable.lable_jingxuan,
-    R.drawable.lable_travel,R.drawable.lable_country,R.drawable.lable_sport,R.drawable.lable_history};
+    private int[] mArrImageSource =
+            {R.drawable.lable_fun,
+            R.drawable.lable_dream,
+            R.drawable.lable_boring,
+            R.drawable.lable_study,
+            R.drawable.lable_food,
+            R.drawable.lable_jingxuan,
+            R.drawable.lable_travel,
+            R.drawable.lable_country,
+            R.drawable.lable_sport,
+            R.drawable.lable_history};
 
-    private String[] fragmentName = {FunFragment.class.getSimpleName(),"","","","","","","","",""};
+    private String[] fragmentName =
+            {FunFragment.class.getSimpleName(),
+                    ReadDreamFragment.class.getSimpleName(),
+                    StrangeFragment.class.getSimpleName(),
+                    "", "", "", "", "", "", ""};
+
     private List<HomeLableBean> mList;
+
     @Override
     protected HomeFgPresenter createPresenter() {
         return new HomeFgPresenter();
@@ -99,10 +113,10 @@ public class HomeFragment extends MvpBaseFragment<HomeInterface, HomeFgPresenter
         }
         //setadapter
 //        HomeGridAdapter adapter = new HomeGridAdapter(mLableString);
-        HomeAdapter homeAdapter = new HomeAdapter(getActivity(),mList);
-        mGridView.setLayoutManager(new GridLayoutManager(getActivity(),2, GridLayoutManager.VERTICAL,false));
+        HomeAdapter homeAdapter = new HomeAdapter(getActivity(), mList);
+        mGridView.setLayoutManager(new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
         Drawable divide = getActivity().getResources().getDrawable(R.drawable.shape_divider_transparent);
-        mGridView.addItemDecoration(new GridItemDivide(getActivity(),divide));
+        mGridView.addItemDecoration(new GridItemDivide(getActivity(), divide));
         mGridView.setAdapter(homeAdapter);
     }
 

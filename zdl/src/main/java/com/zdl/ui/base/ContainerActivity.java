@@ -19,8 +19,6 @@ import java.lang.reflect.Method;
 
 import butterknife.BindView;
 
-import static android.R.attr.fragment;
-
 /**
  * Created by bayin on 2016/11/28.
  */
@@ -61,7 +59,7 @@ public class ContainerActivity extends MVPBaseActivity<ContainerInterface, Conta
                     if (mArgs != null) {
                         try {
                             Method method = aClass.getMethod("setArguments", new Class[]{Bundle.class});
-                            method.invoke(fragment, mArgs);
+                            method.invoke(mFragment, mArgs);
                         } catch (Exception e) {
                         }
                     }
